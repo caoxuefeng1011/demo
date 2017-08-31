@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>SignalR Simple demo</title>
+    <script src="lib/jquery-2.0.3.min.js"></script>
+    <script src="lib/jquery.signalR-2.2.0.js"></script>
+    <!-- <script src="alloy-lever.js"></script> -->
+
+    <script src="http://112.74.193.71:8069/signalr/js"></script>
+    <!-- <script src="js/serverHub.js"></script> -->
+    <style type="text/css">
+        .container {
+            background-color: #99CCFF;
+            border: thick solid #808080;
+            padding: 20px;
+            margin: 20px;
+        }
+        
+        li {
+            word-break: break-all;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <label for="userName">用户名</label>
+        <input type="text" id="userName" value="tz" />
+        <label for="password">密码</label>
+        <input type="password" id="password" value="123456" />
+        <input type="button" onclick="login()" value="登录" />
+        <input type="button" onclick="hubStart()" value="hub连接" />
+        <input type="button" onclick="hubStop()" value="hub断开" />
+        <input type="button" onclick="clearText()" value="Clear" />
+        <br> 未登录：
+        <input type="button" onclick="getBasic()" value="获取基础数据" />
+        <input type="button" onclick="getContractUnlogin()" value="获取合约数据(未登录)" />
+        <br> 登录后操作：
+        <input type="button" onclick="getBasic()" value="获取基础数据" />
+        <input type="button" onclick="getContract()" value="获取合约数据(登录后)" />
+        <input type="button" onclick="getAsset()" value="获取资产数据" />
+        <input type="button" onclick="getAccount()" value="获取帐户信息" />
+        <br>
+        <input type="button" onclick="subContracts()" value="订阅合约" />
+        <input type="button" onclick="addOrder()" value="下单（美原油）" />
+        <input type="button" onclick="setPLPrice()" value="设置止盈止损" />
+        <input type="button" onclick="cancelOrder()" value="取消止盈止损" />
+        <input type="button" onclick="history()" value="历史数据" />
+        <input type="button" onclick="his()" value="历史数据" />
+
+        <ul id="discussion">
+        </ul>
+    </div>
+    <script src="js/index.js"></script>
+    <script src="js/hub.js"></script>
+</body>
+
+</html>
